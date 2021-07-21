@@ -1,4 +1,7 @@
 
+import sys
+sys.path.append('../src')
+
 from auto import auto
 import state
 
