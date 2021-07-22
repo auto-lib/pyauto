@@ -10,14 +10,17 @@ class auto:
         if not isinstance(state,types.ModuleType):
             print('FAIL did not pass in module: '+str(state))
 
+        self.value = {}
+
         # https://stackoverflow.com/a/21885920/4295424
         for name, val in state.__dict__.items():        # iterate through every module's attributes
             if callable(val):                           # check if callable (normally functions)
                 print('found in state: '+val.__name__)
+                self.value[name] = val(self)
 
     def __getattr__(self, name):
         print('get '+name)
-        return ''
+        return self.value[name]
         # try:
         #     return self.__dict[name]
         # except KeyError:

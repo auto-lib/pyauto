@@ -7,4 +7,5 @@ import state
 
 _ = auto(state)
 
-print('pefa_inputs = '+_.pefa_inputs)
+print('filenames = '+str(_.filenames))
+print('contents = '+str(_.contents))
